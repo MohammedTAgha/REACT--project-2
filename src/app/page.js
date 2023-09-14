@@ -14,7 +14,7 @@ export default function Home() {
       redirect('/home')
     }
     else {
-      redirect('/login')
+      redirect('/login')  
     }
   },[token])
   return (
