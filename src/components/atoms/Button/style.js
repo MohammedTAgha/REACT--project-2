@@ -1,86 +1,69 @@
-"use client";
-import styled from "styled-components";
+import { StyledFlexCenter } from "@/style/common";
+import { styled } from "styled-components";
 
-// function to handle variant
-const getStylesByVariant = ({ variant, theme }) => {
-  if (variant == "primary") {
-    return `
-    background-color: ${theme.colors.baseColorBlue};
-    color: ${theme.colors.whiteColor};
-    border-color : ${theme.colors.baseColorBlue} ;
-    
-    &:hover{
-      background-color: transparent;
-      border-color : ${theme.colors.baseColorBlue} ;
-      color : ${theme.colors.baseColorBlue} ;
-    }
-    
-  `;
-  } else if (variant == "secondary") {
-    return `
-      background-color: ${theme.colors.whiteColor};
-      color: ${theme.colors.baseColorBlue};
-      border-color : ${theme.colors.gray300};
-      &:hover{
-        background-color: ${theme.colors.baseColorBlue};
-        border-color : ${theme.colors.baseColorBlue} ;
-        color : ${theme.colors.whiteColor} ;
-      }
-
-    `;
-  } else if (variant == "warning") {
-    return `
-      background-color: ${theme.colors.whiteColor};
-      color: ${theme.colors.baseColorRed};
-      border-color : ${theme.colors.gray300};
-      &:hover{
-        background-color: ${theme.colors.baseColorRed};
-        border-color : ${theme.colors.baseColorRed} ;
-        color : ${theme.colors.whiteColor} ;
-      }
-
-    `;
-  } else if (variant == "success") {
-    return `
-      background-color: ${theme.colors.baseColorGreen};
-      color: ${theme.colors.whiteColor};
-      border-color : ${theme.colors.baseColorGreen};
-      &:hover{
-        background-color: transparent;
-        border-color : ${theme.colors.baseColorGreen} ;
-        color : ${theme.colors.baseColorGreen} ;
-      }
-
-    `;
-  } else if (variant == "orange") {
-    return `
-      background-color: ${theme.colors.baseColorOrange};
-      color: ${theme.colors.whiteColor};
-      border-color : ${theme.colors.baseColorOrange};
-      &:hover{
-        background-color: transparent;
-        border-color : ${theme.colors.baseColorOrange} ;
-        color : ${theme.colors.baseColorOrange} ;
-      }
-
-    `;
-  }
-};
-export const StyledButton = styled.button`
-  cursor: pointer;
+export const ButtonComponent = styled(StyledFlexCenter)`
+  position: relative;
   border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid transparent;
-  font-size: ${(props) => props.theme.fontSizes.md};
-  padding: 7px 0px;
-  transition: 0.5s all;
 
-  ${(props) => {
-    return getStylesByVariant(props);
-  }}
-  .button__Subscribe {
-    width: 110px;
-    height: 40px;
+  border: 1px solid
+    ${(props) =>
+      props.borderColor === "primary"
+        ? "var(--primary-color)"
+        : props.borderColor === "secondary"
+        ? "#fff"
+        : props.borderColor === "gray"
+        ? "var(--gray-300-color)"
+        : "transparent"};
+
+  background-color: ${(props) =>
+    props.variant === "primary"
+      ? "var(--primary-color)"
+      : props.variant === "secondary"
+      ? "var(--white-color)"
+      : props.variant === "orange"
+      ? "var(--orange-color)"
+      : props.variant === "green"
+      ? "var(--green-color)"
+      : props.variant === "facebook"
+      ? "#4267B2"
+      : ""};
+
+  color: ${(props) =>
+    props.color === "primary"
+      ? "var(--primary-color)"
+      : props.color === "secondary"
+      ? "#fff"
+      : props.color === "dark"
+      ? "var(--dark-color)"
+      : props.color === "gray"
+      ? "var(--gray-500-color)"
+      : props.color === "gray-800"
+      ? "var(--gray-800-color)"
+      : props.color === "danger"
+      ? "var(--danger-color)"
+      : ""};
+
+  width: ${(props) => props.width};
+  gap: ${(props) => props.gap};
+  padding: ${(props) => props.padding};
+  outline: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  .order {
+    order: 2;
+  }
+
+  .image__hidden {
+    display: none;
+  }
+
+  img {
+    width: 22px !important;
+    height: 22px !important;
   }
 `;

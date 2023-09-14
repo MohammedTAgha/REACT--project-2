@@ -1,15 +1,42 @@
-import React from 'react';
-import { StyledButton } from './style';
+/* eslint-disable @next/next/no-img-element */
+import { ButtonComponent } from "./style";
 
-const Button = ({ children, variant, ...props }) => {
-  // variant :
-  // primary ,secondary ,warning ,success ,orange
-  // button take width 100% , make sure to wrap it with styled wrapper
-  
+const Button = ({
+  type,
+  variant,
+  color,
+  borderColor,
+  onClick,
+  disabled,
+  size,
+  text,
+  width,
+  imageSrc,
+  imageHidden,
+  padding,
+  gap,
+  order
+}) => {
   return (
-    <StyledButton variant={variant} {...props}>
-      {children}
-    </StyledButton>
+    <ButtonComponent as='button'
+      type={type ? type : "button"}
+      variant={variant}
+      color={color}
+      borderColor={borderColor}
+      onClick={onClick}
+      disabled={disabled}
+      size={size}
+      width={width}
+      padding={padding}
+      gap={gap}
+    >
+      <img
+        src={imageSrc}
+        alt="image"
+        className={`${imageHidden ? "image__hidden" : order ? "order" : ""}`}
+      />
+      {text}
+    </ButtonComponent>
   );
 };
 

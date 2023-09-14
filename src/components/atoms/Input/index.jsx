@@ -1,33 +1,52 @@
-import React from 'react'
-import { Input as MyInput, InputGroup, InputLabel } from './index'
+"use client";
+/* eslint-disable @next/next/no-img-element */
+import { StyledInput } from "./style";
 
 const Input = ({
-  name,
-  label,
+  leftImage,
+  rightImage,
+  type,
   placeholder,
-  type = "text",
   onChange,
-  value,
-  error,
-  width,
-  className = ""
-}) => {0
-
+  imageHidden,
+  leftImageHidden,
+  rightImageHidden,
+  removeArrow,
+  name,
+  onClick,
+  register = () => {},
+}) => {
   return (
-    <InputGroup className={className}>
-      {label && <InputLabel htmlFor="name">{label}</InputLabel>}
-      <MyInput
-        name={name}
-        id={name}
-        placeholder={placeholder || ""}
-        onChange={onChange}
-        type={type}
-        value={value}
-        error={error}
-        width={width}
+    <StyledInput gap="8px">
+      <img
+        src={leftImage}
+        alt="icon"
+        className={`${imageHidden ? "image__hidden" : leftImageHidden ? "left_image_hidden" : ""}`}
       />
-    </InputGroup>
-  )
-}
+      {type === "text" ||
+      type === "email" ||
+      type === "password" ||
+      type === "number" ||
+      type === "search" ? (
+        <input
+          className={`${removeArrow ? "remove__arrow" : ""}`}
+          type={type}
+          placeholder={placeholder}
+          onChange={onChange}
+          id={name}
+          {...register(name)}
+        />
+      ) : (
+        <textarea placeholder={placeholder}></textarea>
+      )}
+      <img
+        src={rightImage}
+        alt="icon"
+        className={`${imageHidden ? "image__hidden" : rightImageHidden ? "right_image_hidden" : ""}`}
+        onClick={onClick}
+      />
+    </StyledInput>
+  );
+};
 
-export default Input
+export default Input;
