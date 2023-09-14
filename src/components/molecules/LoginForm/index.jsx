@@ -16,7 +16,8 @@ import Link from "next/link";
 import { StyledLoginForm } from "./style";
 import { useAuthContext } from "@/context/AuthContext";
 import { useState } from "react";
-
+import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const formSchema = Yup.object({
@@ -35,7 +36,8 @@ export const formSchema = Yup.object({
 const LoginForm = () => {
   const [showPass, setShowPass] = useState(false);
   // const { login, isLoading } = useAuthContext();
-
+  const router = useRouter();
+   
   const {
     register,
     handleSubmit,
@@ -44,8 +46,9 @@ const LoginForm = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit =  () => {
     // login(data);
+    router.push("./home");
   };
 
   const hadnleShowPass = () => {
@@ -57,7 +60,8 @@ const LoginForm = () => {
     <StyledFlexCenter>
       <StyledLoginForm padding="30px">
         <h1>Sign in</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+        <form onSubmit={onSubmit}>
           <div className="box">
             <label htmlFor="email">Email</label>
             <Input
@@ -92,12 +96,12 @@ const LoginForm = () => {
           </div>
           <Button
             text={ "Log in"}
-            type="submit"
+            // type="submit"
             color="secondary"
             variant="primary"
             width="100%"
             padding="10px 0"
-            imageHidden
+            onClick={onSubmit}
           />
         </form>
         <div className="or"></div>

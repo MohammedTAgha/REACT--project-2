@@ -10,6 +10,7 @@ export default function Home() {
   // it's funny to do this 🙄
   // next middleware resolve this problem , i'll learn soon
   useEffect(()=>{
+    console.log(token)
     if(token){
       redirect('/home')
     }

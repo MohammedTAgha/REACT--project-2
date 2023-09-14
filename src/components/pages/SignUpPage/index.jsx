@@ -10,7 +10,7 @@ import { StyledRegister } from "./style";
 import Checkbox from "@/components/atoms/Checkbox";
 import { useAuthContext } from "@/context/AuthContext";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const formSchema = Yup.object({
@@ -65,10 +65,11 @@ const SignUpPage = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-
+  const router = useRouter();
   const onSubmit = async (data) => {
     // signup(data);
     // reset();
+    router.push("./home");
   };
 
   const hadnleShowPass = () => {
@@ -84,7 +85,8 @@ const SignUpPage = () => {
       <StyledFlexCenter>
         <StyledRegister padding="30px">
           <h1>Register</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+          <form onSubmit={onSubmit}>
             <StyledAlignFlex gap="9px" className="box">
               <div>
                 <label htmlFor="name">Name</label>
@@ -205,7 +207,7 @@ const SignUpPage = () => {
 
           <HaveAccount
             question="Already have an accaunt?"
-            path="/Login"
+            path="/login"
             linkText="Log in"
           />
         </StyledRegister>
