@@ -1,6 +1,12 @@
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+
+import { Inter  } from "next/font/google";
+import StyledComponentsRegistry from "./lib/registry";
+import MainLayout from "@/components/layouts/MainLayout";
+import { GlobalStyle } from "./style";
+
+const inter = Inter({ subsets: ["latin"]  });
 
 export const metadata = {
   title: "e-commerce app",
