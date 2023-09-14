@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import Button from "@/components/atoms/Button";
 import HaveAccount from "@/components/atoms/HaveAccount";
-import Input from "@/components/atoms/Input";
+import {Input} from "@/components/atoms/Input";
 import { StyledAlignFlex, StyledFlexCenter, StyledPage } from "@/style/common";
 import { StyledRegister } from "./style";
 import Checkbox from "@/components/atoms/Checkbox";
@@ -55,7 +55,7 @@ export const formSchema = Yup.object({
 const SignUpPage = () => {
   const [showPass, setShowPass] = useState(false);
   const [showRePass, setShowRePass] = useState(false);
-  const { signup, isLoading } = useAuthContext();
+  // const { signup, isLoading } = useAuthContext();
 
   const {
     register,
@@ -67,8 +67,8 @@ const SignUpPage = () => {
   });
 
   const onSubmit = async (data) => {
-    signup(data);
-    reset();
+    // signup(data);
+    // reset();
   };
 
   const hadnleShowPass = () => {
@@ -180,7 +180,7 @@ const SignUpPage = () => {
               )}
             </div>
             <Button
-              text={isLoading ? "Loading..." : "Register now"}
+              text={"Register now"}
               type="submit"
               color="secondary"
               variant="primary"
