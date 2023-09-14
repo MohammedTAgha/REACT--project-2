@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 /* eslint-disable @next/next/no-img-element */
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Button from "@/components/atoms/Button";
 import Checkbox from "@/components/atoms/Checkbox";
 import HaveAccount from "@/components/atoms/HaveAccount";
-import Input from "@/components/atoms/Input";
+import {Input} from "@/components/atoms/Input";
 import {
   StyledBetweenAlignFlex,
   StyledFlexCenter,
@@ -34,7 +34,7 @@ export const formSchema = Yup.object({
 
 const LoginForm = () => {
   const [showPass, setShowPass] = useState(false);
-  const { login, isLoading } = useAuthContext();
+  // const { login, isLoading } = useAuthContext();
 
   const {
     register,
@@ -45,7 +45,7 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (data) => {
-    login(data);
+    // login(data);
   };
 
   const hadnleShowPass = () => {
@@ -53,6 +53,7 @@ const LoginForm = () => {
   };
 
   return (
+   
     <StyledFlexCenter>
       <StyledLoginForm padding="30px">
         <h1>Sign in</h1>
@@ -62,7 +63,7 @@ const LoginForm = () => {
             <Input
               type="email"
               placeholder="Email or phone"
-              name="email"
+              name="email"  
               imageHidden
               register={register}
             />
@@ -90,7 +91,7 @@ const LoginForm = () => {
             <Checkbox text="Remember me" name="checked" register={register} />
           </div>
           <Button
-            text={isLoading ? "Loading..." : "Log in"}
+            text={ "Log in"}
             type="submit"
             color="secondary"
             variant="primary"

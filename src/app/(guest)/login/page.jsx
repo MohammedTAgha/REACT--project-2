@@ -1,15 +1,11 @@
-"use client";// import LoginPage from '@/components/pages/LoginPage'
-import { Input } from '@/components/atoms/Input'
-import React from 'react'
+"use client";
+import LogInPage from "@/components/pages/LoginPage";
 
-const Login = () => {
-  return (
-    // <LoginPage />
-    <div>
-    <Input placeholder='test'/>
-      this is login 
-    </div>
-  )
-}
+export const metadata = {
+  title: "Bran || Login",
+};
 
-export default Login
+
+const Login = () => <LogInPage />;
+
+export default Login;
