@@ -8,8 +8,14 @@ import useAuth from "@/hook/useAuth.jsx";
 import { useAuthContext } from "@/context/AuthContext.jsx";
 
 const LandingPaper = () => {
-  const { user } = useAuth();
-  const { logout } = useAuthContext();
+  const data = useAuthContext();
+  
+  // Check if data is null before attempting to destructure
+  if (!data) {
+    return null;  // or handle the null case appropriately
+  }
+
+  const { user, logout } = data;
 
   const handleLogout = () => {
     logout();

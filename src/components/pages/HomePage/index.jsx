@@ -4,7 +4,7 @@ import React from "react";
 import Landing from "./Sections/LandingSection";
 import DealsAndOffers from "./Sections/DealsAndOffersSection";
 import HomeAndOutDoor from "./Sections/HomeAndOutDoor";
-import RequestSuppliers from "./Sections/RequestSuppliers";
+import {RequestSuppliers} from "./Sections/RequestSuppliers";
 import RecommendedItem from "./Sections/RecommendedItemSection";
 import ExtraServices from "./Sections/ExtraServicesSection";
 import SuppliersRegoin from "./Sections/SuppliersByRegion";
@@ -21,7 +21,7 @@ const HomePage = () => {
           <DealsAndOffers />
           <HomeAndOutDoor />
           <ConsumerElectronics />
-          <RequestSuppliers />
+          {/* <RequestSuppliers /> */}
           <RecommendedItem />
           <ExtraServices />
           <SuppliersRegoin />

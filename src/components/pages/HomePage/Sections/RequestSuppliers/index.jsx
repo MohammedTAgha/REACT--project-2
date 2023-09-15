@@ -1,5 +1,5 @@
 "use client";
-import RequestSuppliersForm from "@/components/molecules/RequestSuppliersForm";
+import {RequestSuppliersForm} from "@/components/molecules/RequestSuppliersForm";
 import { StyledRequestSuppliers } from "./style.js";
 import Button from "@/components/atoms/Button/index.jsx";
 

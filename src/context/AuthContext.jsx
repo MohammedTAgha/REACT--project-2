@@ -7,7 +7,8 @@ export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const data = useAuth();
-// console.log(data)
+console.log("auth")
+console.log(data)
 
   return (
     <AuthContext.Provider value={data}>
