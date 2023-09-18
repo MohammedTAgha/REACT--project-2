@@ -1,7 +1,7 @@
 "use client";
 import Button from "@/components/atoms/Button";
 import CouponCard from "@/components/molecules/CouponCard";
-import MyCartCard from "@/components/molecules/MyCartCard";
+import {MyCartCard} from "@/components/molecules/MyCartCard";
 import TotalPriceCard from "@/components/molecules/TotalPriceCard";
 import { MY_CART } from "@/mock/MyCart";
 import { StyledBetweenAlignFlex, StyledSection } from "@/style/common";
